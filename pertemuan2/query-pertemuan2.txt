@@ -1,0 +1,85 @@
+*untuk melihat database yang sudah ada
+show databases;
+
+*untuk membuat database dengan nama akademik2
+create database akademik2; 
+
+*untuk menggunakan database akademik2
+use akademik2;
+
+*untuk membuat table mahasiswa
+create table mahasiswa(
+-> nim varchar(5) nit null primary key,
+-> nama varchar(50),
+-> jkel varchar(1),
+-> alamat text,
+-> tgllhr date);
+
+*untuk melihat table di dalam database akademik2
+show tables; 
+
+*untuk melihat struktur table mahasiswa
+desc mahasiswa; 
+
+*menambah data di dalam table mahasiswa
+insert into mahasiswa values ('MHS01','Siti Aminah','P','SOLO','1995-10-01');
+insert into mahasiswa values ('MHS02','Rita','P','SOLO','1999-01-01');
+insert into mahasiswa values ('MHS03','Amirudin','L','SEMARANG','1998-108-11');
+insert into mahasiswa values ('MHS04','Siti Maryam','P','JAKARTA','1995-04-15');
+
+*untuk menampilkan seluruh data mahasiswa
+SELECT * FROM mahasiswa;
+
+*untuk menampilkan data dengan alamat=SOLO yang ada di table mahasiswa
+SELECT * FROM mahasiswa WHERE alamat='SOLO';
+
+*menambah field dengan nama prodi di dalam table mahasiswa 
+ALTER TABLE mahasiswa ADD prodi varchar(3);
+
+*untuk melihat struktur table mahasiswa
+desc mahasiswa;
+
+*menambahkan data di dalam table prodi, dengan menggunakan query UPDATE, 
+karena disini kita melakukan pengupdate an pada table mahasiswa, 
+dengan menambahkan data prodi di setiap barisnya. 
+UPDATE mahasiswa SET prodi=’Informatika’ WHERE nim=’MHS01’;
+UPDATE mahasiswa SET prodi=’Biologi’ WHERE nim=’MHS02’;
+UPDATE mahasiswa SET prodi=’Informatika’ WHERE nim=’MHS03’;
+UPDATE mahasiswa SET prodi=’Farmasi’ WHERE nim=’MHS04’;
+
+*untuk menampilkan seluruh data mahasiswa
+SELECT * FROM mahasiswa;
+
+*Menampilkan semua data mahasiswa dengan jenis kelamin Perempuan
+SELECT * FROM mahasiswa WHERE jkel=’P’;
+
+*Menampilkan semua data mahasiswa dengan prodi=informatika
+SELECT * FROM mahasiswa WHERE prodi=’Informatika’;
+
+*Menampilkan semua data mahasiswa dengan prodi=informatika dan jenis kelamin laki laki
+SELECT * FROM mahasiswa WHERE prodi=’Informatika’AND jkel=’L’;
+
+*Menampilkan semua data mahasiswa yang nama depannya diawali dengan huruf S
+SELECT * FROM mahasiswa WHERE nama LIKE ‘S%’;
+
+*Menampilkan semua data mahasiswa yang alamat depannya diawali dengan huruf S
+SELECT * FROM mahasiswa WHERE alamat LIKE ‘S%’;
+
+*Menampilkan semua data mahasiswa yang namanya mengandung kata Siti
+SELECT * FROM mahasiswa WHERE nama LIKE ‘%Siti%’;
+
+*Menampilkan semua data mahasiswa yang alamatnya SOLO dan prodinya Biologi
+SELECT * FROM mahasiswa WHERE alamat=’SOLO’ AND prodi=’Biologi’;
+
+
+
+
+
+
+
+
+
+
+
+
+
