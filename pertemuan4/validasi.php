@@ -24,7 +24,7 @@
  			//$email = test_input($_POST["email"]);
  
  			// check if e-mail address is well-formed
- 			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+ 			if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
  				$emailErr = "Email tidak sesuai format";
  			}else{
  				$email = htmlspecialchars($_POST["email"]);
